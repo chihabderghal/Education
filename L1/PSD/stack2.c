@@ -12,7 +12,21 @@ int top = -1;
 
 void push(int data);
 void print();
-int pop();
+void pop();
+
+// int pop();
+
+/*int pop() {
+ *
+ *  int value;
+ *
+ *  value = stack_arr[0];
+ *  for (int i = 0; i <= top; i++)
+ *    stack_arr[i] = stack_arr[i + 1];
+ *
+ *  return value;
+ * }
+ * */
 
 void push(int data) {
   
@@ -23,16 +37,11 @@ void push(int data) {
   stack_arr[0] = data;
 }
 
-int pop() {
-  
-  int value;
+void pop(int *value) {
 
-  value = stack_arr[0];
-  for (int i = 0; i <= top; i++ ) {
+  *value = stack_arr[0];
+  for (int i = 0; i <= top; i++ ) 
     stack_arr[i] = stack_arr[i + 1];
-  }
-
-  return value;
 }
 
 void print() {
@@ -47,6 +56,9 @@ void print() {
 }
 
 int main() {
+  
+  int data;
+
 
   push(10);
   push(20);
@@ -54,7 +66,10 @@ int main() {
   push(40);
   push(50);
 
-  int data = pop(); 
+  pop(&data); 
+  pop(&data); 
+  pop(&data); 
+
 
   print();
 
