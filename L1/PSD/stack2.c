@@ -23,6 +23,7 @@ void pop();
  *  value = stack_arr[0];
  *  for (int i = 0; i <= top; i++)
  *    stack_arr[i] = stack_arr[i + 1];
+ *     top--;
  *
  *  return value;
  * }
@@ -42,6 +43,7 @@ void pop(int *value) {
   *value = stack_arr[0];
   for (int i = 0; i <= top; i++ ) 
     stack_arr[i] = stack_arr[i + 1];
+    top--;
 }
 
 void print() {
