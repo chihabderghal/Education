@@ -86,14 +86,13 @@ int main() {
     printf("3. print the top element\n");
     printf("4. Print all the elements of the stack\n");
     printf("5. Quit\n");
-    printf("Please enter your choice : \n");
+    printf("Please enter your choice : ");
     scanf("%d", &choice);
-  }
 
    switch (choice) {
     case 1:
       printf("Enter the element to be pushed : ");
-      scanf("%d" &data);
+      scanf("%d", &data);
       push(data);
       break;
     
@@ -103,7 +102,7 @@ int main() {
       break;
 
     case 3:
-      printf()
+      print();
       break;
 
     case 4:
@@ -115,12 +114,8 @@ int main() {
 
     default:
       printf("!ERROR!, type the number again\n");
-
-
-
-   
    }
-
+  }
 
   return 0;
 }
