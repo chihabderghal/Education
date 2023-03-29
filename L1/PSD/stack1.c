@@ -1,4 +1,4 @@
-// Array implementaion of stacks. 
+// Array implementaion of stacks..
 
 #include <stdio.h> 
 #include <stdlib.h>
