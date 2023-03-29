@@ -17,17 +17,17 @@ int peek(); // function to get the top data in the stack.
 
 bool isFull() {
   if (top == MAX - 1)
-    return false;
-  else
     return true;
+  else
+    return false;
 }
 
 bool isEmpty() {
   
   if (top == -1)
-    return false;
-  else 
     return true;
+  else 
+    return false;
 }
 
 void push(int data) {
@@ -102,11 +102,11 @@ int main() {
       break;
 
     case 3:
-      print();
+      printf("The top value in the stack is : %d\n", peek());
       break;
 
     case 4:
-      printf("The top value in the stack is : %d\n", peek());
+      print();
       break;
 
     case 5:
