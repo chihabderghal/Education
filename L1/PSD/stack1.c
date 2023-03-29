@@ -13,6 +13,7 @@ int pop(); // function to pop data from the stack.
 void print(); // function to print the data int stack.
 bool isFull(); // function to check if the stack full or not.
 bool isEmpty(); // function to check if the stack is empty or not.
+int peek(); // function to get the top data in the stack.
 
 bool isFull() {
   if (top == MAX - 1)
@@ -64,17 +65,62 @@ void print() {
     printf("%d \n", stack_arr[i]);
 }
 
-int main() {
-  push(1);
-  push(2);
-  push(3);
-  push(4);
+int peek() {
   
-  int data;
+  if (isEmpty()) {
+    printf("Stack underflow");
+    exit(1);
+  }
 
-  data = pop();
-  data = pop();
-  print();
+  return stack_arr[top];
+}
+
+int main() {
+  
+  int choice, data;   
+
+  while (1) {
+    printf("\n");
+    printf("1. Push\n");
+    printf("2. Pop\n");
+    printf("3. print the top element\n");
+    printf("4. Print all the elements of the stack\n");
+    printf("5. Quit\n");
+    printf("Please enter your choice : \n");
+    scanf("%d", &choice);
+  }
+
+   switch (choice) {
+    case 1:
+      printf("Enter the element to be pushed : ");
+      scanf("%d" &data);
+      push(data);
+      break;
+    
+    case 2:
+      data = pop();
+      printf("Deleted element is %d\n", data);
+      break;
+
+    case 3:
+      printf()
+      break;
+
+    case 4:
+      printf("The top value in the stack is : %d\n", peek());
+      break;
+
+    case 5:
+      exit(1);
+
+    default:
+      printf("!ERROR!, type the number again\n");
+
+
+
+   
+   }
+
 
   return 0;
 }
