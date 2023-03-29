@@ -1,4 +1,6 @@
 // Program to impliment a stack in an array using stack_arr[0] as the top element.
+// do the same with pop() function.
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,14 +12,27 @@ int top = -1;
 
 void push(int data);
 void print();
+int pop();
 
 void push(int data) {
   
   top++;
   for (int i = top; i > 0; i--) 
-    stack_arr[i] = stack_arr[i-1];
+    stack_arr[i] = stack_arr[i - 1];
 
   stack_arr[0] = data;
+}
+
+int pop() {
+  
+  int value;
+
+  value = stack_arr[0];
+  for (int i = 0; i <= top; i++ ) {
+    stack_arr[i] = stack_arr[i + 1];
+  }
+
+  return value;
 }
 
 void print() {
@@ -28,7 +43,7 @@ void print() {
   }
 
   for (int i = 0; i <= top; i++)
-    printf("%d \n", stack_arr[i]);
+    printf("|--%d--| \n", stack_arr[i]);
 }
 
 int main() {
@@ -38,6 +53,8 @@ int main() {
   push(30);
   push(40);
   push(50);
+
+  int data = pop(); 
 
   print();
 
