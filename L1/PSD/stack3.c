@@ -71,13 +71,14 @@ int main() {
   printf("Type ther numebr you want : ");
   scanf("%d", &tmp);
 
-  while (tmp != i) {
+  while (tmp != 1) {
     
     if (tmp % i == 0) {
       push(i);
       tmp = tmp / i;
-    }
-    i++;
+    } else
+        i++;
+
   }
 
   print();
