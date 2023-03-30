@@ -8,7 +8,7 @@
 #define MAX 5
 
 int stack_arr[MAX];
-int top = -1;
+int first = -1;
 
 void push(int data);
 void print();
@@ -21,9 +21,9 @@ void pop();
  *  int value;
  *
  *  value = stack_arr[0];
- *  for (int i = 0; i <= top; i++)
+ *  for (int i = 0; i <= first; i++)
  *    stack_arr[i] = stack_arr[i + 1];
- *     top--;
+ *     first--;
  *
  *  return value;
  * }
@@ -31,8 +31,8 @@ void pop();
 
 void push(int data) {
   
-  top++;
-  for (int i = top; i > 0; i--) 
+  first++;
+  for (int i = first; i > 0; i--) 
     stack_arr[i] = stack_arr[i - 1];
 
   stack_arr[0] = data;
@@ -41,19 +41,19 @@ void push(int data) {
 void pop(int *value) {
 
   *value = stack_arr[0];
-  for (int i = 0; i <= top; i++ ) 
+  for (int i = 0; i <= first; i++ ) 
     stack_arr[i] = stack_arr[i + 1];
-    top--;
+    first--;
 }
 
 void print() {
 
-  if (top == -1) {
+  if (first == -1) {
     printf("Underflow\n");
     exit(1);
   }
 
-  for (int i = 0; i <= top; i++)
+  for (int i = 0; i <= first; i++)
     printf("|--%d--| \n", stack_arr[i]);
 }
 
