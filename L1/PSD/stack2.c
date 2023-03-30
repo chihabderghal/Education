@@ -15,6 +15,7 @@ void print();
 void pop();
 bool isEmpty();
 bool isFull();
+void peek();
 
 bool isEmpty() {
   
@@ -32,6 +33,15 @@ bool isFull() {
     return false;
 }
 
+void peek() {
+  
+  if (isEmpty()) {
+    printf("Stack underflow\n");
+    exit(1);
+  }
+  int top_value = stack_arr[0];
+  printf("the top value : %d\n", top_value);
+}
 
 // int pop();
 
@@ -88,10 +98,12 @@ int main() {
 
   pop(&data); 
   pop(&data); 
-  pop(&data); 
-
 
   print();
+
+  peek();
+
+
 
   return 0;
 }
