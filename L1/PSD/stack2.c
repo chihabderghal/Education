@@ -13,6 +13,25 @@ int first = -1;
 void push(int data);
 void print();
 void pop();
+bool isEmpty();
+bool isFull();
+
+bool isEmpty() {
+  
+  if (first == -1)
+    return true;
+  else 
+    return false;
+}
+
+bool isFull() {
+  
+  if (first == MAX - 1)
+    return true;
+  else 
+    return false;
+}
+
 
 // int pop();
 
@@ -48,7 +67,7 @@ void pop(int *value) {
 
 void print() {
 
-  if (first == -1) {
+  if (isEmpty()) {
     printf("Underflow\n");
     exit(1);
   }
@@ -60,7 +79,6 @@ void print() {
 int main() {
   
   int data;
-
 
   push(10);
   push(20);
