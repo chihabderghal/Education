@@ -33,7 +33,7 @@ bool isFull() {
 void push(int data) {
   
   if (isFull()) {
-    pritnf("Stack overflow\n");
+    printf("Stack overflow\n");
     exit(1);
   }
 
@@ -48,7 +48,7 @@ void pop(int *data) {
     exit(1);
   }
     
-    *data = stack_arrp[top];
+    *data = stack_arr[top];
     top--;
 }
 
@@ -59,17 +59,28 @@ void print() {
     exit(1);
   }
 
-  for (int i = top; i < 0; i--) 
+  for (int i = top; i >= 0; i--) 
     printf("|--%d--| \n", stack_arr[i]);
 
 }
 
-
-
 int main() {
+  
+  int data, tmp, i = 2;
 
+  printf("Type ther numebr you want : ");
+  scanf("%d", &tmp);
 
+  while (tmp != i) {
+    
+    if (tmp % i == 0) {
+      push(i);
+      tmp = tmp / i;
+    }
+    i++;
+  }
 
+  print();
 
  return 0;
 }
