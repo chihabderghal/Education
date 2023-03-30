@@ -59,6 +59,11 @@ void peek() {
  * */
 
 void push(int data) {
+
+  if (isFull()) {
+    printf("Stack overflow\n");
+    exit(1);
+  }
   
   first++;
   for (int i = first; i > 0; i--) 
@@ -72,7 +77,8 @@ void pop(int *value) {
   *value = stack_arr[0];
   for (int i = 0; i <= first; i++ ) 
     stack_arr[i] = stack_arr[i + 1];
-    first--;
+
+  first--;
 }
 
 void print() {
