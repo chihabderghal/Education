@@ -63,8 +63,8 @@ void binary(int data) {
   int mod, i = 2;
 
   while (data != 0) {
-    data = data \ i;
     mod = data % 2;
+    data = data / i;
     push(mod);
    }
 
@@ -79,6 +79,7 @@ int main() {
   scanf("%d", &number);
 
   binary(number);
+  print();
   
   return 0;
 }
