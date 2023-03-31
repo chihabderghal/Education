@@ -14,6 +14,7 @@ bool isEmpty();
 void push(int data);
 void print();
 void binary(int data);
+void print_binary();
 
 bool isFull() {
   
@@ -55,7 +56,6 @@ void print() {
 
   for (int i = first; i >= 0; i--)
     printf("|--%d--| \n", stack_arr[i]);
-
 }
 
 void binary(int data) {
@@ -70,6 +70,13 @@ void binary(int data) {
 
 }
 
+void print_binary() {
+
+  printf("The convert to binary : ");
+  for (int i = first; i >= 0; i--)
+    printf("%d", stack_arr[i]);
+}
+
 
 int main() {
 
@@ -80,6 +87,7 @@ int main() {
 
   binary(number);
   print();
+  print_binary();
   
   return 0;
 }
