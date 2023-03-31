@@ -63,7 +63,7 @@ void binary(int data) {
   int mod, i = 2;
 
   while (data != 0) {
-    mod = data % 2;
+    mod = data % i;
     data = data / i;
     push(mod);
    }
