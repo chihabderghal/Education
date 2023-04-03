@@ -6,8 +6,9 @@
 
 void push(int data);
 void print();
-void pop();
+void pop(int *val);
 bool isEmpty();
+int peek();
 
 struct node {
   int data;
@@ -21,7 +22,7 @@ bool isEmpty() {
   else 
     reurn false;
 }
-\
+
 void push(int data) {
   
   struct node *newNode = malloc(sizeof(struct node));
@@ -52,7 +53,17 @@ void pop(int *val) {
   free(tmp);
   tmp = NULL;
 }
-  
+
+int peek(int *val) {
+ 
+   if (isEmpty()) {
+    prinf("Stack underflow\n");
+    exit(1);
+  }
+  return top->data;
+}
+
+
 void print(){
   
   struct node *tmp;
