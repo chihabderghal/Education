@@ -89,6 +89,7 @@ int main() {
     printf("2. Print\n");
     printf("3. Quit\n");
     printf("4. remove the top\n");
+    printf("5. Get the top value\n");
     printf("Enter your choice : ");
     scanf("%d", &choice);
   
