@@ -5,6 +5,7 @@
 
 void push(int data);
 void print();
+void pop();
 
 struct node {
   int data;
@@ -25,6 +26,17 @@ void push(int data) {
   newNode->link = top;
   top = newNode;
 }
+
+void pop(int *val) {
+  struct node *tmp;
+  tmp = top;
+
+  int * val = tmp->data;
+  top = top->link;
+
+  free(tmp);
+  tmp = NULL;
+}
   
 void print(){
   
@@ -42,7 +54,7 @@ void print(){
 
 int main() {
 
-  int choice, data;
+  int choice, data, val;
   while (1) {
     printf("1. Push\n");
     printf("2. Print\n");
@@ -63,6 +75,10 @@ int main() {
 
     case 3:
       exit(1);
+      break;
+
+    case 4:
+      pop(&val);
       break;
 
     default:
