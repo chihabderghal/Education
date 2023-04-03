@@ -31,7 +31,7 @@ void pop(int *val) {
   struct node *tmp;
   tmp = top;
 
-  int * val = tmp->data;
+  *val = tmp->data;
   top = top->link;
 
   free(tmp);
@@ -49,9 +49,6 @@ void print(){
   }
 }
 
-
-
-
 int main() {
 
   int choice, data, val;
@@ -59,6 +56,7 @@ int main() {
     printf("1. Push\n");
     printf("2. Print\n");
     printf("3. Quit\n");
+    printf("4. remove the top\n");
     printf("Enter your choice : ");
     scanf("%d", &choice);
   
