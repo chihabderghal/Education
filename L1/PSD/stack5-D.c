@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdboo.h>
+#include <stdbool.h>
 
 void push(int data);
 void print();
@@ -20,7 +20,7 @@ bool isEmpty() {
   if (top == NULL) 
     return true;
   else 
-    reurn false;
+    return false;
 }
 
 void push(int data) {
@@ -43,7 +43,7 @@ void pop(int *val) {
   tmp = top;
 
   if (isEmpty()) {
-    prinf("Stack underflow\n");
+    printf("Stack underflow\n");
     exit(1);
   }
 
@@ -54,10 +54,10 @@ void pop(int *val) {
   tmp = NULL;
 }
 
-int peek(int *val) {
+int peek() {
  
    if (isEmpty()) {
-    prinf("Stack underflow\n");
+    printf("Stack underflow\n");
     exit(1);
   }
   return top->data;
@@ -70,7 +70,7 @@ void print(){
   tmp = top;
 
    if (isEmpty()) {
-    prinf("Stack underflow\n");
+    printf("Stack underflow\n");
     exit(1);
   }
 
@@ -109,6 +109,10 @@ int main() {
 
     case 4:
       pop(&val);
+      break;
+    
+    case 5:
+      printf("The top valaue is : %d\n", peek());
       break;
 
     default:
