@@ -1,9 +1,11 @@
+// Linked list implementation od stacks.
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <bool.h>
 
 void push(int data);
+void print();
 
 struct node {
   int data;
@@ -23,9 +25,18 @@ void push(int data) {
 
   new-node-> top;
   top = new-node;
-
 }
   
+void print(){
+  
+  node *tmp = malloc(sizeof(new-node));
+  tmp = top;
+
+  while (tmp != NULL) {
+    printf("%d\n", tmp->data);
+    tmp = tmp->link;
+  }
+}
 
 
 
