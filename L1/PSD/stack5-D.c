@@ -2,16 +2,26 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdboo.h>
 
 void push(int data);
 void print();
 void pop();
+bool isEmpty();
 
 struct node {
   int data;
   struct node *link;
 } *top = NULL;
 
+bool isEmpty() {
+  
+  if (top == NULL) 
+    return true;
+  else 
+    reurn false;
+}
+\
 void push(int data) {
   
   struct node *newNode = malloc(sizeof(struct node));
@@ -31,6 +41,11 @@ void pop(int *val) {
   struct node *tmp;
   tmp = top;
 
+  if (isEmpty()) {
+    prinf("Stack underflow\n");
+    exit(1);
+  }
+
   *val = tmp->data;
   top = top->link;
 
@@ -40,8 +55,14 @@ void pop(int *val) {
   
 void print(){
   
-  struct node *tmp = malloc(sizeof(struct node));
+  struct node *tmp;
   tmp = top;
+
+   if (isEmpty()) {
+    prinf("Stack underflow\n");
+    exit(1);
+  }
+
 
   while (tmp != NULL) {
     printf("|--%d--|\n", tmp->data);
