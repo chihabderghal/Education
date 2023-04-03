@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <bool.h>
 
 void push(int data);
 void print();
@@ -14,26 +13,26 @@ struct node {
 
 void push(int data) {
   
-  node *new-node = malloc(sizeof(new-node));
-  if (new-node == NULL) {
+  struct node *newNode = malloc(sizeof(struct node));
+  if (newNode == NULL) {
     printf("Stack overflow\n");
     exit(1);
   }
 
-  new-node->data = data;
-  new-node->link = NULL;
+  newNode->data = data;
+  newNode->link = NULL;
 
-  new-node-> top;
-  top = new-node;
+  newNode->link = top;
+  top = newNode;
 }
   
 void print(){
   
-  node *tmp = malloc(sizeof(new-node));
+  struct node *tmp = malloc(sizeof(struct node));
   tmp = top;
 
   while (tmp != NULL) {
-    printf("%d\n", tmp->data);
+    printf("|--%d--|\n", tmp->data);
     tmp = tmp->link;
   }
 }
@@ -50,8 +49,7 @@ int main() {
     printf("3. Quit\n");
     printf("Enter your choice : ");
     scanf("%d", &choice);
-  }
-
+  
   switch (choice) {
     case 1:
       printf("Enter the element to be pushed : ");
@@ -60,17 +58,18 @@ int main() {
       break;
 
     case 2:
-      printf();
+      print();
       break;
 
     case 3:
       exit(1);
+      break;
 
     default:
-      printf("!Eror!, Type again");
+      printf("!Eror!, Type again\n");
       break;
+    }
   }
-
 
   return 0;
 }
