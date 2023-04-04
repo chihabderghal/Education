@@ -9,10 +9,11 @@ typedef struct node {
   struct node *link;
 } node;  
 
-bool isEmpty();
+bool isEmpty(node *top);
 void push(int data, node **top);
 void pop(int *val, node **top);
 void print(node *top);
+void reverse_stack(node **top);
 
 bool isEmpty(node *top) {
   
@@ -68,11 +69,36 @@ void print(node *top) {
   }
 }
 
+void reverse_stack(node **top) {
+  
+  node *top1 = NULL;
+  node *top2 = NULL;
+  int val;
+
+  while (!isEmpty(*top)) {
+    pop(&val, top);
+    push(val, &top1);
+  }
+
+  while (!isEmpty(top1)) {
+    pop(&val, &top1);
+    push(val, &top2);
+  }
+  
+  *top = top2;
+}
+
+
 int main() {
   
   node *top = NULL;
-  node *top1 = NULL;
-  node *top2 = NULL;
+
+  // node *top1 = NULL;
+  // node *top2 = NULL;
+
+  /*
+   * Without using function
+   *
   // Original stack to tmp stack (1). 
   push(1, &top);
   push(2, &top);
@@ -103,5 +129,20 @@ int main() {
 
   printf("\n");
   print(top2);
+
+  */
+  
+  // Using the function;
+
+  push(1, &top);
+  push(2, &top);
+  push(3, &top);
+  print(top);
+
+  reverse_stack(&top);
+  printf("\n");
+  print(top);
+
   return 0;
+
 }
