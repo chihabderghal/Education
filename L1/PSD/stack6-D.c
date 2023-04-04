@@ -73,12 +73,35 @@ int main() {
   node *top = NULL;
   node *top1 = NULL;
   node *top2 = NULL;
-
+  // Original stack to tmp stack (1). 
   push(1, &top);
   push(2, &top);
   push(3, &top);
   print(top);
 
+  int val;
 
+  // Tmp stack (1) stack to tmp stack (2). 
+  pop(&val, &top);
+  push(val, &top1);
+  pop(&val, &top);
+  push(val, &top1);
+  pop(&val, &top);
+  push(val, &top1);
+
+  printf("\n");
+  print(top1);
+
+  // Tmp stack (2) stack to tmp stack (3). 
+
+  pop(&val, &top1);
+  push(val, &top2);
+  pop(&val, &top1);
+  push(val, &top2);
+  pop(&val, &top1);
+  push(val, &top2);
+
+  printf("\n");
+  print(top2);
   return 0;
 }
