@@ -4,19 +4,17 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool isEmpty();
-void push(int data);
-void pop();
-void print();
-
 typedef struct node {
   int data;
   struct node *link;
-}node; 
+} node;  
 
-node *top = NULL;
+bool isEmpty();
+void push(int data, node **top);
+void pop(int *val, node **top);
+void print(node *top);
 
-bool isEmpty() {
+bool isEmpty(node *top) {
   
   if (top == NULL)
     return true;
@@ -24,7 +22,7 @@ bool isEmpty() {
     return false;
 }
 
-void push(int data) {
+void push(int data, node **top) {
   
   node *tmp = malloc(sizeof(node));
  
@@ -36,29 +34,33 @@ void push(int data) {
   tmp->data = data;
   tmp->link = NULL;
 
-  tmp->link = top;
-  top = tmp;
+  tmp->link = *top;
+  *top = tmp;
 }
 
-void pop(int *val) {
- 
-  node *ptr = top;
+void pop(int *val, node **top) {
+  
+  node *ptr = *top;
 
-  if (isEmpty()) {
+  if (isEmpty(*top)) {
     printf("Stack underflow\n");
     exit(1);
   }
 
   *val = ptr->data;
-  top = top->link;
+  *top = ptr->link;
 
   free(ptr);
   ptr = NULL;
 }
 
-void print() {
+void print(node *top) {
 
   node *print = top;
+  if (isEmpty(top)) {
+    printf("Stack underflow\n");
+    exit(1);
+  }
 
   while (print != NULL) {
     printf("|--%d--|\n", print->data);
@@ -68,11 +70,14 @@ void print() {
 
 int main() {
   
-  push(1);
-  push(2);
-  push(3);
-  
-  print();
+  node *top = NULL;
+  node *top1 = NULL;
+  node *top2 = NULL;
+
+  push(1, &top);
+  push(2, &top);
+  push(3, &top);
+  print(top);
 
 
   return 0;
