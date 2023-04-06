@@ -39,8 +39,7 @@ void push(int data) {
 }
 
 void pop(int *val) {
-  struct node *tmp;
-  tmp = top;
+  struct node *tmp = top;
 
   if (isEmpty()) {
     printf("Stack underflow\n");
